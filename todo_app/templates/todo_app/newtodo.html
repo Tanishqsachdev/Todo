@@ -1,0 +1,19 @@
+{% extends 'todo_app/base.html' %}
+
+{% block title %}
+<title>New Todo</title>
+{% endblock title %}
+
+{% block body %}
+<h3>New Tods</h3>
+<br>
+<br>
+{% if error %}
+<h6 class='alert alert-danger'>{{error}}</h6>
+{% endif %}
+<form method='POST'>
+{% csrf_token %}
+{{form.as_p}}
+<button class='btn btn-success' type='submit'>Add</button>
+</form>
+{% endblock body %}

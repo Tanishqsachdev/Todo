@@ -1,0 +1,22 @@
+{% extends 'todo_app/base.html' %}
+
+{% block title %}
+<title>Sign up</title>
+{% endblock title %}
+
+{% block body %}
+<div align='center'>
+<h2>Sign Up</h2>
+<br>
+<br>
+{% if error %}
+<h6 class='alert alert-danger'>{{error}}</h6>
+{% endif %}
+
+<form method='POST' >
+ {% csrf_token %} 
+{{ form.as_table }}
+<button type='submit' class='btn btn-primary'>Submit</button>
+</form>
+</div>
+{% endblock body %}
