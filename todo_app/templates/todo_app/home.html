@@ -1,9 +1,12 @@
 {% extends 'todo_app/base.html' %}
+{% load static%}
 
 {% block title %}
 <title>Home</title>
+
 {% endblock title %}
 
 {% block body %}
 
+<img src="{% static 'images/todo.png' %}" class="center-block">
 {% endblock body %}
