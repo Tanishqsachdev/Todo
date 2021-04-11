@@ -8,10 +8,10 @@
 <h1>Your Todos</h1>
 <a class='btn btn-default' href={% url 'completed' %}>Completed</a>
 {% for todo in todos  %}
-<br><a href={% url 'viewtodo' todo.id %} <h3>{{todo.title}}</h6></a>
-<h6>{{todo.created}}</h6>
+<br><a href={% url 'viewtodo' todo.id %} ><h2>{{todo.title}}</h2></a>
+<h5>{{todo.created}}</h5>
 {% if todo.description %}
-<p>{{todo.description}} </p>
+<h4>{{todo.description}} </h4>
 
 {% endif %}
 {% endfor %}
