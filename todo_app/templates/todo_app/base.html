@@ -24,7 +24,11 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
+    {% if user.is_authenticated %}
+      <a class="navbar-brand" href="{% url 'alltodos' %}">Todos</a>
+      {% else %}
       <a class="navbar-brand" href="{% url 'home' %}">Todos</a>
+      {% endif %}
     </div>
     
     <ul class="nav navbar-nav navbar-right">
@@ -42,7 +46,7 @@
       <li class='navbut'>
       <form  class="" action="{% url 'logout' %}" method="POST">
       {% csrf_token %}
-      <a class="btn btn-danger" name='logout' value='logout' type='submit'>Logout</a>
+      <input class="btn btn-danger" name='logout' value='Logout' type='submit'/>
       </form>
       </li>
       {% else %}
