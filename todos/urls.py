@@ -32,5 +32,6 @@ urlpatterns = [
     path('user/todos/<int:id>/',views.viewtodo,name='viewtodo'),
     path('user/todos/<int:id>/delete',views.deletetodo,name='deletetodo'),
     path('user/todos/<int:id>/complete',views.completetodo,name='completetodo'),
+    path('user/todos/<int:id>/incomplete',views.incompletetodo,name='incompletetodo'),
     path('user/todos/completed',views.completed,name='completed'),
 ]

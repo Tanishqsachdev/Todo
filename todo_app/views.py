@@ -85,7 +85,7 @@ def deletetodo(request,id):
     todo = get_object_or_404(Todo,pk=id,user=request.user)
     if request.method == 'POST':
         todo.delete()
-        return redirect(alltodos)
+        return redirect('alltodos')
 
 @login_required
 def completetodo(request,id):
@@ -93,11 +93,20 @@ def completetodo(request,id):
     if request.method == 'POST':
         todo.datecompleted = timezone.now()
         todo.save()
-        return redirect(alltodos)
+        return redirect('alltodos')
     else:
-        return redirect(home)
+        return redirect('home')
 
 @login_required
 def completed(request):
     todos = Todo.objects.filter(user=request.user,datecompleted__isnull=False)
     return render(request,'todo_app/todos.html',{'todos':todos})
+@login_required
+def incompletetodo(request,id):
+    todo = get_object_or_404(Todo,pk=id,user=request.user)
+    if request.method == 'POST':
+        todo.datecompleted = None
+        todo.save()
+        return redirect('alltodos')
+    else:
+        return redirect('home')

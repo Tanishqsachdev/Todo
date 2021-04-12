@@ -20,8 +20,18 @@
 {% csrf_token %}
 <button class='btn btn-danger' type='submit'>Delete </button>
 </form>
+
+
+{% if todo.datecompleted %}
+<form method='POST' action={% url 'incompletetodo' todo.id %}>
+{% csrf_token %}
+<button class='btn btn-success' type='submit'>Mark incomplete</button>
+</form>
+{% else %}
 <form method='POST' action={% url 'completetodo' todo.id %}>
 {% csrf_token %}
 <button class='btn btn-success' type='submit'> Completed</button>
 </form>
+{% endif %}
+
 {% endblock body %}

@@ -6,9 +6,11 @@
 
 {% block body %}
 <h1>Your Todos</h1>
-<a class='btn btn-default' href={% url 'completed' %}>Completed</a>
+<a class='' href={% url 'completed' %}><button class='btn btn-info'>Completed</button></a>
+<a class='btn btn-success' href={% url 'newtodo' %}>+</a>
 {% for todo in todos  %}
-<br><a href={% url 'viewtodo' todo.id %} ><h2>{{todo.title}}</h2></a>
+
+<br><a href={% url 'viewtodo' todo.id %} ><h2>{{todo.title}}{% if todo.important %} <span class="glyphicon glyphicon-star-empty"></span>{% endif %}</h2></a>
 <h5>{{todo.created}}</h5>
 {% if todo.description %}
 <h4>{{todo.description}} </h4>
